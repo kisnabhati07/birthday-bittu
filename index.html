@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Birthday Surprise 🎉</title>
+
+<style>
+
+body{
+margin:0;
+font-family:Arial;
+background:linear-gradient(135deg,#ff6a88,#ff99ac);
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+color:white;
+overflow:hidden;
+}
+
+.container{
+max-width:400px;
+}
+
+#gift{
+font-size:90px;
+cursor:pointer;
+animation:shake 1.2s infinite;
+}
+
+@keyframes shake{
+0%{transform:rotate(0)}
+25%{transform:rotate(6deg)}
+50%{transform:rotate(-6deg)}
+75%{transform:rotate(6deg)}
+100%{transform:rotate(0)}
+}
+
+#message{
+display:none;
+margin-top:20px;
+}
+
+.cake{
+font-size:70px;
+animation:bounce 1.5s infinite;
+}
+
+@keyframes bounce{
+0%{transform:translateY(0)}
+50%{transform:translateY(-12px)}
+100%{transform:translateY(0)}
+}
+
+.confetti{
+position:fixed;
+width:10px;
+height:10px;
+top:-10px;
+animation:fall linear infinite;
+}
+
+@keyframes fall{
+to{
+transform:translateY(110vh) rotate(720deg);
+}
+}
+
+.firework{
+position:fixed;
+font-size:30px;
+animation:boom 1s ease-out forwards;
+}
+
+@keyframes boom{
+0%{transform:scale(0)}
+100%{transform:scale(3);opacity:0}
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>🎁 Tap the Gift</h2>
+
+<div id="gift" onclick="openGift()">🎁</div>
+
+<div id="message">
+
+<div class="cake">🎂</div>
+
+<h2 id="typing"></h2>
+
+<p>
+May your day be as special as you are and your year be filled with success, happiness, and everything you wish for.
+</p>
+
+</div>
+
+</div>
+
+<audio id="music" src="https://www.soundjay.com/happy/sounds/happy-birthday-song-01.mp3"></audio>
+
+<script>
+
+let text="🎉 Happy Birthday Bittu ✨";
+let i=0;
+
+function openGift(){
+
+document.getElementById("gift").style.display="none";
+document.getElementById("message").style.display="block";
+
+document.getElementById("music").play();
+
+typeMessage();
+confettiExplosion();
+fireworks();
+
+}
+
+function typeMessage(){
+
+if(i<text.length){
+
+document.getElementById("typing").innerHTML+=text.charAt(i);
+i++;
+setTimeout(typeMessage,80);
+
+}
+
+}
+
+function confettiExplosion(){
+
+for(let i=0;i<150;i++){
+
+let confetti=document.createElement("div");
+
+confetti.className="confetti";
+
+confetti.style.left=Math.random()*100+"vw";
+confetti.style.background="hsl("+Math.random()*360+",100%,50%)";
+confetti.style.animationDuration=(Math.random()*3+2)+"s";
+
+document.body.appendChild(confetti);
+
+}
+
+}
+
+function fireworks(){
+
+for(let i=0;i<30;i++){
+
+let fire=document.createElement("div");
+
+fire.className="firework";
+fire.innerHTML="🎆";
+
+fire.style.left=Math.random()*100+"vw";
+fire.style.top=Math.random()*100+"vh";
+
+document.body.appendChild(fire);
+
+}
+
+}
+
+</script>
+
+</body>
+</html>
