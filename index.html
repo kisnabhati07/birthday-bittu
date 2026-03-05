@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Bittu</title>
+
+<style>
+
+body{
+margin:0;
+font-family:Arial;
+background:linear-gradient(135deg,#ff6a88,#ff99ac);
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+color:white;
+}
+
+button{
+padding:15px 25px;
+font-size:18px;
+border:none;
+border-radius:10px;
+background:white;
+color:#ff4d7e;
+}
+
+#msg{
+display:none;
+margin-top:20px;
+font-size:20px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div>
+
+<h2>🎁 Tap to Open Surprise</h2>
+
+<button onclick="show()">Open</button>
+
+<div id="msg">
+
+<h2>🎂 Happy Birthday Bittu✨</h2>
+
+<p>
+May your day be as special as you are and your year be filled with success, happiness, and everything you wish for.
+</p>
+
+</div>
+
+</div>
+
+<script>
+
+function show(){
+document.getElementById("msg").style.display="block";
+}
+
+</script>
+
+</body>
+</html>
